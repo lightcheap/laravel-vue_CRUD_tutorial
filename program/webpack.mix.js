@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 
+const path = require('path');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,7 +13,20 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.webpackConfig({
+    resolve: {
+        extensions: ['.vue', '.js', '.ts'],
+        alias: {
+            "@js": path.resolve(__dirname, "resources/asset/js")
+        },
+    },
+    watchOptions: {
+        ignored: '**/node_modules',
+        aggregateTimeout: 1000,
+    },
+});
+
+mix.js('resources/asset/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]).vue();
