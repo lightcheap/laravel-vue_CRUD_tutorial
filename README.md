@@ -1,2 +1,2 @@
-# formbylavel-vue
-laravel(back)/vue(front)で問い合わせフォームを作成する
+# laravel-vue_CRUD_tutorial
+laravel + Vueで簡単なCRUDを練習する
